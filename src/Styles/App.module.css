@@ -1,0 +1,135 @@
+/*Default values */
+
+body{
+  background-color: #F3F3E0;
+  width: 100vw;
+  height: 100vh;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  box-sizing: border-box;
+}
+
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+/*Login form CSS */
+
+.container{
+  width: 400px;
+  background-color: #133E87;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+  margin-top: 80px;
+}
+
+.container2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.content h2{
+  font-size: 2em;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form .inputFields{
+  position: relative;
+  width: 100%;
+}
+
+.inputFields input{
+  position: relative;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  padding: 25px 10px 7.5px;
+  border-radius: 4px;
+  color: #000;
+  font-weight: 500;
+  font-size: 1em;
+  width: 100%;
+}
+
+.inputFields2 input{
+  position: relative;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  padding: 8px 10px 7.5px;
+  border-radius: 4px;
+  color: #000;
+  font-weight: 500;
+  font-size: 1em;
+  width: 100%
+}
+
+/* Links CSS */
+
+.links{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.links a:nth-child(2){
+  color: #fff;
+  font-weight: 600;
+}
+
+/*CSS for login button */
+.inputFields input[type = "submit"]{
+  padding: 10px;
+  background-color: #608BC1;
+  color: #fff;
+  font-size: 1.35em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  font-weight: 600;
+}
+.submit{
+  padding: 10px;
+  background-color: #608BC1;
+  color: #fff;
+  font-size: 1.35em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  font-weight: 600;
+}
