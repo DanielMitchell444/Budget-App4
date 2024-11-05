@@ -6,6 +6,8 @@ import Menu from './Components/Menu';
 import { useState } from 'react';
 import { BrowserRouter,  Routes, Route } from 'react-router-dom';
 import SignUp from './Components/SignUp';
+import LandingPage from './Components/LandingPage';
+import Nav from './Components/Nav';
 function App() {
   //Handing input fields //
 
@@ -17,73 +19,86 @@ function App() {
   const [email, setEmail] = useState("")
   const [complete, isComplete] = useState(false) 
   const [gender, setGender] = useState("")
-  const [isValidEmail, setIsValidEmail] = useState(true)
+  const [isValidEmail, setIsValidEmail] = useState()
+  const [menu, setShowMenu] = useState(false)
+
+  const [data, setFormData] = useState({
+    "FirstName": "",
+    "LastName": "",
+    "Username": "",
+    "Password": "",
+    "Email": "",
+    "Birthday": "",
+    "Gender": ""
+  })
+
+  const [valid, setIsValid] = useState()
+
+  const [error, setError] = useState("")
  
-   const handleInputChange = (event) => {
-   setUserName(event.target.value)
-   setPassWord(event.target.value)
-   setFirstName(event.target.value)
-   setLastName(event.target.value)
-   setBirthDay(event.target.value)
-   setEmail(event.target.value)
-   setGender(event.target.value)
-   }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...data, [name]: value });
+};
 
-   const refreshList = (event) => {
-    axios.get("http://localhost:8000/api/Users/")
-    .then((res) => setUserName({"Username": res}))
-    .then(res => setPassWord(res))
-    .catch((err) => console.log(err));
-   }
-  
+const toggleMenu = () => {
+  setShowMenu(!menu)
+}
 
-   const handleSubmit = (event) => {
-    event.preventDefault();
-    // Send data to Django backend
-    axios.post("http://localhost:8000/api/Users/", {
-       "FirstName": firstName,
-       "LastName": lastName,
-       "Username": username,
-       "Password": password,
-       "Email": email,
-       "Birthday": birthday,
-      
-      
-      })
-    
-    .then(res => refreshList(res))
 
-  };
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try{
+       const response = await axios.post("http://localhost:8000/api/Users/",
+        data
+       )
+       window.location.href = "/"
+       alert("Succesfully signed up")
+       
+        
+      } catch(error){
+        if(error.response){
+          setError(error.response.data.errors)
+        }
+        else{
+          setError({general: "An unexpected error has occured"})
+        }
+      }
+      }
 
   return (
     <div className= {styles.App}>
     <BrowserRouter>
+    <Nav />
+    <main className= {styles.mainContent}>
     <Routes>
-      <Route path = "/" element={
-       <Login 
-       onChange = {(e) => handleInputChange(e)}
-       username = {username}
-       password = {password}
-       handleSubmit = {handleSubmit}
-       />
+      <Route path = "/" element= {
+          <LandingPage
+          show = {menu}
+          menu = {toggleMenu}
+          />
       }
       />
+      <Route path = "/Login" element= { <Login 
+
+username = {username}
+password = {password}
+handleSubmit = {handleSubmit}
+valid = {valid}
+      
+      />} />
+    
+
       <Route path = "/SignUp" element={<SignUp 
-        onChange = {(e) => handleInputChange(e)}
-        username = {username}
-        password = {password}
-        firstName = {firstName}
-        lastName = {lastName}
-        email = {email}
-        birthday = {birthday}
-        handleSubmit = {handleSubmit}
-        gender = {gender}
+      valid = {valid}
+       onChange={handleChange}
+       onSubmit = {handleSubmit}
+       error = {error}
       />} />
       </Routes>
+      </main>
       </BrowserRouter>
     </div>
-    
   );
 }
-
 export default App;

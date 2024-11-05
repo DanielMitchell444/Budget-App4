@@ -2,7 +2,7 @@ import React from "react";
 import styles from '../Styles/App.module.css'
 import { useState } from "react";
 import { Link } from "react-router-dom";
-const Login = ({onChange, username, password, handleSubmit}) => {
+const Login = ({onChange, username, password, handleSubmit, valid}) => {
 
  return(
 <div className =  {styles.container}>
@@ -43,9 +43,9 @@ const Login = ({onChange, username, password, handleSubmit}) => {
     </div>
    </form>
  </div>
+
 </div>
  )
 }
-
 
 export default Login

@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from budget import views
-
+from budget.views import register_user
 router = routers.DefaultRouter()
 router.register(r'Users', views.TodoView, 'Users')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api/Users/', register_user, name='register_user'),
 ]

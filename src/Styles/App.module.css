@@ -1,7 +1,12 @@
 /*Default values */
+:root{
+  --header-height: 3.5rem;
+  --h2-font-size: 1.25rem;
+  --z-tooltip: 10;
+ --z-fixed: 100;
+}
 
 body{
-  background-color: #F3F3E0;
   width: 100vw;
   height: 100vh;
 }
@@ -9,17 +14,136 @@ body{
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Quicksand', sans-serif;
   box-sizing: border-box;
+    font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.App{
+
+.stuff{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+.App{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
+ul{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+/* Navigation */
+
+.header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  line-height: 90px;
+}
+
+.logo h1{
+  font-size: var(--h2-font-size)
+}
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  position: relative;
+  height: var(--header-height)
+}
+
+.navLinks{
+  display: flex;
+  flex-direction: row;
+  column-gap: 2.5rem;
+  font-size: 20px
+}
+
+.navLogo h1{
+  color: white;
+}
+
+.navLink_cta{
+ color: var(--title-color);
+ border: none;
+ border-radius: 4px;
+ cursor: pointer;
+ background-color: #fff;
+ color: black;
+ padding: 0.75rem 1.5rem;
+}
+
+.navLinks2{
+  color: grey;
+}
+
+
+.toggleMenu{
+ display: none;
+}
+
+.toggle{
+ display: none;
+}
+
+/*Homepage */
+.mainContent {
+  padding-top: 4rem;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landingPageContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landingContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.landingContainer h1{
+  color: white;
+  text-align: center;
+}
+
+.landingContainer p{
+  font-size: 20px;
+  color: white;
+  margin-top: 30px;
+  width: 900px;
+  text-align: center;
+}
+
+.getStarted{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: black;
+  font-size: 16px;
+  margin-top: 40px;
+}
 
 
 /*Login form CSS */
@@ -132,4 +256,61 @@ body{
   letter-spacing: 0.05em;
   cursor: pointer;
   font-weight: 600;
+}
+
+
+
+@media(max-width: 768px) {
+  .navLinks{
+    display: none;
+  }
+
+  .toggleMenu{
+    display: flex;
+  }
+
+  .toggle{
+    display: flex;
+    color: white;
+    font-size: 24px;
+  }
+
+  .App{
+    background-image: url("../Assets/iStock-1225527535\ \(1\).jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@media(min-width: 481px) and  (max-width: 1024px){
+  .App{
+  background-image: url("../Assets/iStock-1225527535\ \(1\).jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+}
+
+@media(min-width: 1025px){
+  .App{
+    background-image: url("../Assets/iStock-1225527535\ \(1\).jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    max-width: 100%;
+    height: 100vh;
+  }
+
+}
+
+@media(min-width: 1200px){
+ .heading{
+  font-size: 64px;
+ }
 }
