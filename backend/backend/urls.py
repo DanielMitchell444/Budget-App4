@@ -18,12 +18,19 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from budget import views
-from budget.views import register_user
+from budget.views import LoginView
+from budget.views import api_register_user
+from budget.views import login_user
+from rest_framework_simplejwt.views import TokenObtainPairView
 router = routers.DefaultRouter()
 router.register(r'Users', views.TodoView, 'Users')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api/Users/', register_user, name='register_user'),
+    path('api/Users/', api_register_user, name='register_user'),
+    path('api/Login/', login_user, name='login_user'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/Login/', LoginView.as_view(), name='login'),
+    
 ]

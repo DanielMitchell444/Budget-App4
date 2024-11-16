@@ -53,6 +53,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000"  # Replace with your frontend URL
+]
+
 ROOT_URLCONF = 'backend.urls'
 
 CORS_ALLOW_ALL_ORIGINS = True

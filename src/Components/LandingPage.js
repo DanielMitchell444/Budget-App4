@@ -8,8 +8,10 @@ const LandingPage = ({show, menu}) => {
      <div className= {styles.landingContainer}>
       <h1 className= {styles.heading}>Explore the possibilities</h1>
       <h1 className= {styles.heading}>of Budgeting with Echo Software</h1>
-      <p>Unleash the power of healthy budgeting within Echo Budgeting. Upgrade your budgeting potential with Echo, the budget app made for losers</p>
+      <p>Unleash the power of healthy budgeting within Echo Budgeting. Upgrade your budgeting potential with Echo, your journey to better budgeting starts with Echo.</p>
+     <Link to = "SignUp">
      <button className= {styles.getStarted}>Get Started</button>
+     </Link>
      </div>
      </div>
     )

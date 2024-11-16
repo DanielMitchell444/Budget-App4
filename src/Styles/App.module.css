@@ -8,15 +8,17 @@
 
 body{
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-    font-family: "Abril Fatface", serif;
-  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -69,7 +71,8 @@ a{
   display: flex;
   flex-direction: row;
   column-gap: 2.5rem;
-  font-size: 20px
+  font-size: 20px;
+  transition: all 0.3s ease; /* Smooth transition for menu items */
 }
 
 .navLogo h1{
@@ -81,13 +84,13 @@ a{
  border: none;
  border-radius: 4px;
  cursor: pointer;
- background-color: #fff;
- color: black;
+ background-color: #A020F0;;
+ color: #fff;
  padding: 0.75rem 1.5rem;
 }
 
 .navLinks2{
-  color: grey;
+  color: white;
 }
 
 
@@ -95,14 +98,13 @@ a{
  display: none;
 }
 
+
 .toggle{
  display: none;
 }
 
 /*Homepage */
 .mainContent {
-  padding-top: 4rem;
-  margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,6 +132,7 @@ a{
 .landingContainer p{
   font-size: 20px;
   color: white;
+  line-height: 2;
   margin-top: 30px;
   width: 900px;
   text-align: center;
@@ -140,23 +143,63 @@ a{
   justify-content: center;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  color: black;
-  font-size: 16px;
+  color: white;
+  background-color: #A020F0;;
+  font-size: 20px;
   margin-top: 40px;
 }
 
 
 /*Login form CSS */
 
-.container{
-  width: 400px;
-  background-color: #133E87;
+.wrappedContainer{
+  background-image: linear-gradient(#0D1A2D, #1A0033);
+  background-size: cover;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 40px;
-  margin-top: 80px;
+}
+
+.container{
+  background: rgba(13, 26, 45, 0.85); /* semi-transparent dark overlay */
+    border: 1px solid #00FFFF; /* neon cyan border */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* subtle glow effect */
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 60px;
+    color: #FFFFFF;
+    width: 400px;
+}
+
+.containerSignUp{
+  background: rgba(13, 26, 45, 0.85); /* semi-transparent dark overlay */
+  border: 1px solid #00FFFF; /* neon cyan border */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* subtle glow effect */
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 60px;
+  width: 800px;
+  color: #FFFFFF;
+}
+
+.forgotPasswordContainer{
+  background: rgba(13, 26, 45, 0.85); /* semi-transparent dark overlay */
+  border: 1px solid #00FFFF; /* neon cyan border */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* subtle glow effect */
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 60px;
+  width: 400px;
+  color: #FFFFFF;
+}
+
+.forgotPasswordContainer h1{
+  text-align: center;
+  margin-bottom: 25px;
 }
 
 .container2{
@@ -172,7 +215,7 @@ a{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
+  gap: 10px;
 }
 
 .content h2{
@@ -182,14 +225,34 @@ a{
 }
 
 .form{
-  width: 100%;
   display: flex;
+  margin-top: 10px;
   flex-direction: column;
   gap: 25px;
+  width: 100%;
 }
 
 .form .inputFields{
   position: relative;
+  width: 100%;
+}
+
+.form .inputFieldsLogin{
+  position: relative;
+  width: 100%;
+}
+
+.inputFieldsLogin{
+  position: relative;
+  width: 100%;
+}
+
+.doubleForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 40px;
   width: 100%;
 }
 
@@ -203,6 +266,39 @@ a{
   color: #000;
   font-weight: 500;
   font-size: 1em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  margin-top: 30px;
+}
+
+.inputFieldsLogin input{
+  position: relative;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  padding: 25px 10px 7.5px;
+  border-radius: 4px;
+  margin-top: 5px;
+  color: #000;
+  font-weight: 500;
+  font-size: 1em;
+  width: 100%
+}
+
+.inputFieldsLogin .login{
+  background: linear-gradient(135deg, #00FFFF, #FF00FF); /* neon gradient */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.inputFields2{
   width: 100%;
 }
 
@@ -211,10 +307,12 @@ a{
   background-color: #fff;
   border: none;
   outline: none;
-  padding: 8px 10px 7.5px;
+  padding: 25px 10px 7.5px;
   border-radius: 4px;
+  margin-top: 5px;
   color: #000;
   font-weight: 500;
+  margin-top: 10px;
   font-size: 1em;
   width: 100%
 }
@@ -240,13 +338,30 @@ a{
 
 /*CSS for login button */
 .inputFields input[type = "submit"]{
-  padding: 10px;
-  background-color: #608BC1;
-  color: #fff;
-  font-size: 1.35em;
-  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #00FFFF, #FF00FF); /* neon gradient */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
   cursor: pointer;
-  font-weight: 600;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.reset{
+  background: linear-gradient(135deg, #00FFFF, #FF00FF); /* neon gradient */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.inputFields input[type = "submit"]:hover {
+  background: linear-gradient(135deg, #FF00FF, #00FFFF); /* reverse gradient */
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 10px rgba(255, 0, 255, 0.7); /* glowing effect */
 }
 .submit{
   padding: 10px;
@@ -258,11 +373,167 @@ a{
   font-weight: 600;
 }
 
+/* CSS for About Page */
 
+.features{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+
+.features h1{
+  color: #fff;
+  margin-bottom: 40px;
+  text-decoration: underline;
+  text-underline-offset: 1.5rem;
+  text-decoration-color: linear-gradient(45deg, #00c6ff, #0072ff, #9b59b6, #ff6ec7);
+}
+
+.features h1::after{
+  text-decoration-color: linear-gradient(45deg, #00c6ff, #0072ff, #9b59b6, #ff6ec7);;
+}
+
+.features p{
+  color: #fff;
+  width: 460px;
+  text-align: justify;
+  line-height: 2.5;
+}
+
+/*Our Mission */
+
+.mission{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.mission h1{
+  color: white;
+  margin-bottom: 40px;
+  text-decoration: underline;
+  text-underline-offset: 1.5rem;
+}
+
+.mission p{
+  text-align: justify;
+  color: white;
+  width: 440px;
+  line-height: 2.5;
+  margin-bottom: 20px;
+  
+}
+
+
+/*Key Features */
+
+.keyFeatures{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.keyFeatures h1{
+  color: white;
+  text-align: center;
+  
+}
+
+#features2{
+  text-decoration: underline;
+  text-underline-offset: 1.5rem;
+  margin-bottom: 60px;
+}
+
+.featuresContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.featuresBox{
+  background: rgba(13, 26, 45, 0.85); /* semi-transparent dark overlay */
+    border: 1px solid #00FFFF; /* neon cyan border */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* subtle glow effect */
+    border-radius: 8px;
+    padding: 2rem;
+    width: 350px;
+    height: 350px;
+}
+
+.featuresBox h1{
+  font-size: 18px;
+}
+
+.featuresBox p{
+  color: #fff
+}
+
+.featureText p{
+  font-size: 15px;
+  text-align: center;
+}
+
+/* News Page CSS*/
+
+.news h1{
+  color: white;
+}
+
+/* Contact page CSS */
+
+.contact h1{
+  color: white;
+}
+
+@media(max-width: 600px){
+  .navLinks{
+    display: none;
+  }
+}
+
+@media(max-width: 500px){
+  .navLinks{
+    display: none;
+  }
+}
 
 @media(max-width: 768px) {
   .navLinks{
     display: none;
+    width: 100vw;;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-image: linear-gradient(#0D1A2D, #1A0033);
+    padding: 0.5rem 3rem 0;
+    height: 100vh;
+
+  }
+
+  .navMenu{
+    top: 0;
+  }
+
+  .navLinks.active{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: -15px;
+    right: 0;
+    width: 100vw;
+    opacity: 1; /* Fully visible */
+    padding: 0.5rem 3rem 0;
+    column-gap: 2.5rem;
+    transition: right 0.4s;
   }
 
   .toggleMenu{
@@ -281,36 +552,551 @@ a{
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    width: 100vw;
-    height: 100vh;
+    
+  }
+
+  .landingContainer p{
+    width: 350px;
+  }
+
+  .features{
+    padding: 20px 0;
+   }
+  
+   .features h1{
+    line-height: 1.8em;
+   }
+  
+   .features p{
+    width: 440px;
+    line-height: 1.8em;
+    font-size: 15px;
+    margin: 0 0 15px
+   }
+  
+   .mission{
+    padding: 20px 0;
+   }
+  
+   .mission h1{
+    line-height: 1.8em;
+   }
+  
+   .mission p{
+    width: 440px;
+    line-height: 1.8em;
+    font-size: 15px;
+    margin: 0 0 15px;
+   }
+
+   .keyFeatures h1{
+    color: white;
+    text-align: center;
+    
+  }
+  
+  #features2{
+    text-decoration: underline;
+    text-underline-offset: 1.5rem;
+    margin-bottom: 60px;
+  }
+  
+  .featuresContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .featuresBox{
+    background: rgba(13, 26, 45, 0.85); /* semi-transparent dark overlay */
+      border: 1px solid #00FFFF; /* neon cyan border */
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* subtle glow effect */
+      border-radius: 8px;
+      padding: 2rem;
+      width: 300px;
+  }
+  
+  .featureText h1{
+    font-size: 18px;
+    line-height: 1.8em;
+    margin-bottom: 5px;
+  }
+  
+  .featuresBox p{
+    color: #fff;
+    font-size: 15px;
+    margin: 0 0 15px;
+    line-height: 1.8em;
+  }
+
+  .featuresBox{
+    width: 400px;
+  }
+
+  .doubleForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .inputFields2 input{
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  .containerSignUp{
+    width: 400px;
+  }
+
+  
+  
+}
+
+@media(max-width: 800px){
+  .toggle{
+    display: flex;
+    color: white;
   }
 }
 
+@media(max-width: 850px){
+  .toggle{
+    display: flex;
+    color: white;
+  }
+}
+
+@media(max-width: 900px){
+  .navLinks{
+    display: none;
+  }
+
+  .toggle{
+    display: flex;
+    color: white;
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 362px) and (max-width: 376px){
+  .features{
+    padding: 20px 0;
+  }
+  
+  .features h1{
+    line-height: 1.8em;
+  }
+  
+  .features p{
+    width: 330px;
+    font-size: 15px;
+    margin: 0 0 15px;
+    line-height: 1.8em;
+  }
+
+  .container{
+    width: 320px;
+  }
+  
+  .mission{
+    padding: 20px 0;
+  }
+  
+  .mission h1{
+    line-height: 1.8em;
+  }
+  
+  .mission p{
+    width: 350px;
+    font-size: 15px;
+    margin: 0 0 15px;
+    line-height: 1.8em;
+  }
+
+    .wrappedContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+  }
+
+  .containerSignUp{
+      background: rgba(13, 26, 45, 0.85); /* semi-transparent dark overlay */
+      border: 1px solid #00FFFF; /* neon cyan border */
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* subtle glow effect */
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 60px;
+      width: 380px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #FFFFFF;
+
+    }
+
+    .inputFields2{
+      width: 100%;
+    }
+
+    .inputFields2 input{
+      position: relative;
+      background-color: #fff;
+      border: none;
+      outline: none;
+      padding: 20px 5px 5px;
+      margin-top: 0px;
+      border-radius: 4px;
+      margin-top: 5px;
+      color: #000;
+      font-weight: 500;
+      font-size: 1em;
+      width: 100%
+    }
+
+    .header{
+      width: 100%;
+    }
+
+    .nav{
+      width: 100%;
+    }
+
+
+
+    .mainContent{
+      width: 100%;
+    }
+}
+
+@media(max-width: 361px){
+ .header{
+  width: 100%;
+ }
+
+ .containerSignUp{
+  background: rgba(13, 26, 45, 0.85); /* semi-transparent dark overlay */
+  border: 1px solid #00FFFF; /* neon cyan border */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* subtle glow effect */
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 60px;
+  width: 330px;
+  display: flex;
+  justify-content: center;
+ }
+
+ .inputFields2 input{
+  position: relative;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  padding: 15px 5px 3px;
+  border-radius: 4px;
+  margin-top: 5px;
+  color: #000;
+  font-weight: 500;
+  margin-top: 0px;
+  font-size: 1em;
+  width: 100%;
+ }
+
+ .doubleForm{
+  gap: 23px;
+ }
+}
+
+@media (min-width: 400px) and (max-width: 415px){
+  .landingPageContainer{
+    background-image: url("../Assets/iStock-1225527535\ \(1\).jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+.heading{
+  font-size: 22px;
+  width: 393px;
+}
+
+.features{
+  padding: 20px 0;
+}
+
+.container{
+  width: 320px;
+}
+
+.features h1{
+  line-height: 1.8em;
+}
+
+.features p{
+  width: 350px;
+  font-size: 15px;
+  margin: 0 0 15px;
+  line-height: 1.8em;
+}
+
+.mission{
+  padding: 20px 0;
+}
+
+.mission h1{
+  line-height: 1.8em;
+}
+
+.mission p{
+  width: 350px;
+  font-size: 15px;
+  margin: 0 0 15px;
+  line-height: 1.8em;
+}
+
+.featuresBox{
+  width: 300px;
+  height: 400px;
+}
+
+.featureText h1{
+  line-height: 1.8em;
+  margin-bottom: 5px;
+}
+
+.featureText p{
+  font-size: 15px;
+    margin: 0 0 15px;
+    line-height: 1.8em;
+}
+
+.wrappedContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.containerSignUp{
+    background: rgba(13, 26, 45, 0.85); /* semi-transparent dark overlay */
+    border: 1px solid #00FFFF; /* neon cyan border */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* subtle glow effect */
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 60px;
+    width: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+
+  }
+
+  .inputFields2{
+    width: 100%;
+  }
+
+  .inputFields2 input{
+    position: relative;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    padding: 15px 5px 5px;
+    margin-top: 0px;
+    border-radius: 4px;
+    margin-top: 5px;
+    color: #000;
+    font-weight: 500;
+    font-size: 1em;
+    width: 100%
+  }
+}
+
+@media(max-width: 431px){
+  .features{
+    padding: 20px 0;
+  }
+  
+  .container{
+    width: 320px;
+  }
+  
+  .features h1{
+    line-height: 1.8em;
+  }
+  
+  .features p{
+    width: 350px;
+    font-size: 15px;
+    margin: 0 0 15px;
+    line-height: 1.8em;
+  }
+  
+  .mission{
+    padding: 20px 0;
+  }
+  
+  .mission h1{
+    line-height: 1.8em;
+  }
+  
+  .mission p{
+    width: 350px;
+    font-size: 15px;
+    margin: 0 0 15px;
+    line-height: 1.8em;
+  }
+  
+  .featuresBox{
+    width: 300px;
+    height: 400px;
+  }
+  
+  .featureText h1{
+    line-height: 1.8em;
+    margin-bottom: 5px;
+  }
+  
+  .featureText p{
+    font-size: 15px;
+      margin: 0 0 15px;
+      line-height: 1.8em;
+  }
+
+  .landingPageContainer{
+    background-image: url("../Assets/iStock-1225527535\ \(1\).jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 100vh;
+  }
+
+  }
+
+
+
 @media(min-width: 481px) and  (max-width: 1024px){
-  .App{
+  .landingPageContainer{
   background-image: url("../Assets/iStock-1225527535\ \(1\).jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: relative;
   width: 100vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
   height: 100vh;
+}
+
+.heading{
+  font-size: 32px;
 }
 }
 
 @media(min-width: 1025px){
-  .App{
+  .landingPageContainer{
+    position: relative;
     background-image: url("../Assets/iStock-1225527535\ \(1\).jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center;
-    max-width: 100%;
     height: 100vh;
+    width: 100vw;
   }
+    .features{
+      padding: 20px 0;
+     }
+    
+     .features h1{
+      line-height: 1.8em;
+     }
+    
+     .features p{
+      width: 900px;
+      line-height: 1.8em;
+      font-size: 15px;
+      margin: 0 0 15px
+     }
+    
+     .mission{
+      padding: 20px 0;
+     }
+    
+     .mission h1{
+      line-height: 1.8em;
+     }
+    
+     .mission p{
+      width: 900px;
+      line-height: 1.8em;
+      font-size: 15px;
+      margin: 0 0 15px;
+     }
 
-}
+  }
 
 @media(min-width: 1200px){
  .heading{
   font-size: 64px;
+  font-weight: 600px;
+ }
+
+ .features{
+  padding: 20px 0;
+ }
+
+ .features h1{
+  line-height: 1.8em;
+ }
+
+ .features p{
+  width: 900px;
+  line-height: 1.8em;
+  font-size: 15px;
+  margin: 0 0 15px
+ }
+
+ .mission{
+  padding: 20px 0;
+ }
+
+ .mission h1{
+  line-height: 1.8em;
+ }
+
+ .mission p{
+  width: 900px;
+  line-height: 1.8em;
+  font-size: 15px;
+  margin: 0 0 15px;
+ }
+
+ .featuresContainer{
+  gap: 30px;
+ }
+
+ .featureText h1{
+  line-height: 1.8em;
+  margin-bottom: 5px;
+  
+ }
+
+ .featureText p{
+    font-size: 15px;
+    margin: 0 0 15px;
+    line-height: 1.8em;
  }
 }
