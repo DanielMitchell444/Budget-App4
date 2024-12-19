@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +43,30 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
+# REST Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+
+# JWT settings
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),  # Adjust the token expiration time as needed
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # Refresh token expiration time
+    'ROTATE_REFRESH_TOKENS': True,  # Rotate refresh tokens
+    'BLACKLIST_AFTER_ROTATION': True,  # Expire previous refresh tokens
+    'ALGORITHM': 'HS256',  # Algorithm for encoding tokens (HS256, RS256, etc.)
+    'SIGNING_KEY': 'your-secret-key',  # Signing key for the JWT
+    'VERIFYING_KEY': None,
+    'AUDIENCE': None,
+    'ISSUER': None,
+    'JWK_URL': None,
+}
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -53,11 +78,41 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000"  # Replace with your frontend URL
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",  # Replace with your frontend URL
+    "http://localhost:8000/api/teller/accounts/"
+]
+
+INSTALLED_APPS += [
+    'rest_framework_simplejwt',
+]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+
+
 ROOT_URLCONF = 'backend.urls'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -90,6 +145,15 @@ CORS_ALLOW_HEADERS = [
     "x-requested-with",
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+
 CORS_ALLOW_CREDENTIALS = True
 
 TEMPLATES = [
@@ -121,6 +185,34 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'budget.Users'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # This loads the environment variables from .env
+
+
+# Get the paths from environment variables
+CERT_PATH = os.getenv("CERT_PATH")  # Ensure this matches your environment variable
+KEY_PATH = os.getenv("KEY_PATH")
+
+# Make sure the paths were set properly
+if not CERT_PATH or not KEY_PATH:
+    print("ERROR: CERT_PATH or KEY_PATH not found in environment variables!")
+else:
+    # Read the certificate and private key files
+    with open(CERT_PATH, 'r') as cert_file:
+        cert_data = cert_file.read()
+
+    with open(KEY_PATH, 'r') as key_file:
+        key_data = key_file.read()
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -141,7 +233,12 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+     {
+        'NAME': 'path.to.PasswordValidator',
+    },
 ]
+
+# settings.py
 
 AUTH_PASSWORD_VALIDATORS = [
     {

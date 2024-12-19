@@ -17,7 +17,7 @@ const Nav = ({menu, toggleMenu}) => {
           <Link to = "/"  className= {styles.navLinks2}>Home</Link>
           </li>
           <li>
-          <Link to = "/About"  className= {styles.navLinks2}>About Us</Link>
+          <Link to = "/Dashboard"  className= {styles.navLinks2}>About Us</Link>
           </li>
           <li>
           <Link to = "/News"  className= {styles.navLinks2}>News</Link>

@@ -3,7 +3,7 @@ import styles from '../Styles/App.module.css'
 
 const About = () => {
   return(
-  <div className= {styles.wrappedContainer}>
+  <div className= {styles.wrappedContainer2}>
     <div className= {styles.features}>
    <h1>About Us</h1>
    <p>Started in 2020 out of our small office in Milan, Italy, Echo was created with a single mission: to make budgeting easier and more accessible for everyone. Teaming up with financial experts, developers, and designers, we’ve built an intuitive app that empowers users to take control of their finances with ease and confidence.</p>
